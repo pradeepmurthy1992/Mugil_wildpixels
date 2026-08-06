@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Gallery — Wild Pixels_kmv</title>
+<meta name="description" content="Wildlife photography gallery by Mugil — tigers, elephants, deer and birds captured across India's forests.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-main">Wild Pixels</span>
+      <span class="brand-sub">— KMV —</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html" class="active">My Gallery</a></li>
+        <li><a href="guests.html">Guests Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero" style="background-image:url('assets/img/spotted-deer.jpg')">
+  <div class="container hero-inner">
+    <span class="eyebrow reveal in">My Gallery</span>
+    <h1 class="reveal in">Frames from the forest</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filter-bar reveal">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="big-cats">Big Cats</button>
+      <button data-filter="elephants">Elephants</button>
+      <button data-filter="deer">Deer</button>
+      <button data-filter="birds">Birds</button>
+    </div>
+
+    <div class="gallery-grid">
+      <figure data-cat="big-cats" data-lightbox>
+        <img src="assets/img/tiger.jpg" alt="Tiger walking along a rocky riverbed">
+        <figcaption>Tiger · Central India</figcaption>
+      </figure>
+      <figure data-cat="birds" data-lightbox>
+        <img src="assets/img/hero-shrike.jpg" alt="Long-tailed shrike perched on a branch">
+        <figcaption>Long-tailed Shrike</figcaption>
+      </figure>
+      <figure data-cat="elephants" data-lightbox>
+        <img src="assets/img/elephant-family.jpg" alt="Elephant mother and calf">
+        <figcaption>Elephant Family</figcaption>
+      </figure>
+      <figure data-cat="deer" data-lightbox>
+        <img src="assets/img/spotted-deer.jpg" alt="Spotted deer walking on a forest track">
+        <figcaption>Spotted Deer (Chital)</figcaption>
+      </figure>
+      <figure data-cat="birds" data-lightbox>
+        <img src="assets/img/woodpecker-1.jpg" alt="Woodpecker on a tree trunk">
+        <figcaption>Woodpecker</figcaption>
+      </figure>
+      <figure data-cat="elephants" data-lightbox>
+        <img src="assets/img/elephant-walking.jpg" alt="Asian elephant walking on a forest path">
+        <figcaption>Asian Elephant</figcaption>
+      </figure>
+      <figure data-cat="deer" data-lightbox>
+        <img src="assets/img/sambar-deer.jpg" alt="Sambar deer looking at the camera">
+        <figcaption>Sambar Deer</figcaption>
+      </figure>
+      <figure data-cat="birds" data-lightbox>
+        <img src="assets/img/nuthatch-hole.jpg" alt="Nuthatch at a tree hollow">
+        <figcaption>Nuthatch</figcaption>
+      </figure>
+      <figure data-cat="elephants" data-lightbox>
+        <img src="assets/img/elephants-dust-bath.jpg" alt="Elephants taking a dust bath">
+        <figcaption>Dust Bath</figcaption>
+      </figure>
+      <figure data-cat="birds" data-lightbox>
+        <img src="assets/img/nuthatch-branch.jpg" alt="Nuthatch on a bare branch">
+        <figcaption>Nuthatch</figcaption>
+      </figure>
+      <figure data-cat="elephants" data-lightbox>
+        <img src="assets/img/elephant-calf-egret.jpg" alt="Elephant calf with a cattle egret">
+        <figcaption>Calf &amp; Egret</figcaption>
+      </figure>
+      <figure data-cat="birds" data-lightbox>
+        <img src="assets/img/bushchat.jpg" alt="Bird perched on a wooden post">
+        <figcaption>Pied Bushchat</figcaption>
+      </figure>
+      <figure data-cat="elephants" data-lightbox>
+        <img src="assets/img/elephant-grassland.jpg" alt="Elephant in tall grassland">
+        <figcaption>Elephant, Grassland</figcaption>
+      </figure>
+      <figure data-cat="birds" data-lightbox>
+        <img src="assets/img/woodpecker-2.jpg" alt="Woodpecker peeking from a tree hollow">
+        <figcaption>Woodpecker</figcaption>
+      </figure>
+      <figure data-cat="birds" data-lightbox>
+        <img src="assets/img/sparrow.jpg" alt="Sparrow perched on a log">
+        <figcaption>Sparrow</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox">
+  <button class="lightbox-close" aria-label="Close">✕</button>
+  <button class="lightbox-prev" aria-label="Previous">‹</button>
+  <img src="" alt="">
+  <button class="lightbox-next" aria-label="Next">›</button>
+</div>
+
+<footer class="site-footer" id="footer-include"></footer>
+<script src="js/footer.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
