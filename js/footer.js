@@ -2,7 +2,7 @@
 document.write(`
   <div class="container footer-top">
     <div class="footer-brand">
-      <span class="brand-main">Wild Pixels</span>
+      <img class="footer-logo" src="assets/brand/logo-full-gold.png" alt="Wild Pixels">
       <p>Wildlife &amp; nature photography by Mugil, run alongside Studio KMV. Prints, galleries and guided wildlife tours.</p>
       <div class="social-row" style="margin-top:22px;">
         <a href="https://wa.me/919566342789" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
