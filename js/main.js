@@ -1,5 +1,40 @@
 // Wild Pixels_kmv — shared site behaviour
 
+/* Rotating hero backgrounds — a different strong shot each page load.
+   Runs immediately (script tag is after the hero markup) so the swap
+   happens before paint rather than flashing the fallback image. */
+(() => {
+  const HERO_POOL = [
+    "tiger-golden-light.jpg",
+    "tiger-forest-track.jpg",
+    "tiger-resting-02.jpg",
+    "tiger-approaching-02.jpg",
+    "leopard-undergrowth.jpg",
+    "owl-canopy.jpg",
+    "crested-serpent-eagle.jpg",
+    "flamingo-flock-sunrise.jpg",
+    "flamingo-golden-hour.jpg",
+    "flamingo-sunset.jpg",
+    "white-throated-kingfisher.jpg",
+    "blue-tailed-bee-eater.jpg",
+    "golden-oriole-02.jpg",
+    "red-junglefowl.jpg",
+    "bts-sunrise.jpg",
+    "bts-field-01.jpg",
+  ];
+  const heroEls = document.querySelectorAll("[data-random-hero]");
+  if (!heroEls.length) return;
+  const used = [];
+  heroEls.forEach((el) => {
+    const pool = HERO_POOL.filter((f) => !used.includes(f));
+    const pick = (pool.length ? pool : HERO_POOL)[
+      Math.floor(Math.random() * (pool.length ? pool.length : HERO_POOL.length))
+    ];
+    used.push(pick);
+    el.style.backgroundImage = `url('assets/img/${pick}')`;
+  });
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   /* Sticky header background on scroll */
   const header = document.querySelector(".site-header");
