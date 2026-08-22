@@ -18,7 +18,7 @@
   --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   --serif: "Fraunces", "Georgia", serif;
   --sans: "Jost", "Segoe UI", sans-serif;
-  --maxw: 1180px;
+  --maxw: clamp(1180px, 80vw, 1440px);
 }
 
 * { box-sizing: border-box; }
