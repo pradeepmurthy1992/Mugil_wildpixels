@@ -16,6 +16,8 @@ document.write(`
         <li><a href="index.html">Home</a></li>
         <li><a href="gallery.html">My Gallery</a></li>
         <li><a href="guests.html">Guests Gallery</a></li>
+        <li><a href="tours.html">Upcoming Tours</a></li>
+        <li><a href="gear.html">Gear Sale</a></li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
