@@ -3,7 +3,7 @@
 // and logs the entry in the review Sheet. See README for setup.
 
 // Paste the deployed Apps Script Web App URL here (ends in /exec).
-const SUBMIT_ENDPOINT = "PASTE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbxtDbqlDBOH01Mf6vG4xrKxi36PJwAvmZ87r396IsFDQ_o9m1qYsfBlPKEJWseKkSQd/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("guest-submit-form");

@@ -24,7 +24,7 @@
 
 const FOLDER_ID = "1xt0tKhdU3U0m7IPz8_Lywn9ru5KZTUgr"; // Drive folder for uploaded photos
 const SHEET_ID = "1bQnBjKPnPMt_J89JQ9DQvu56bpIlLUwD2pzZzfTr0Xs"; // Review log spreadsheet
-const NOTIFY_EMAIL = "studiokmv20@gmail.com"; // who gets pinged on a new submission
+const NOTIFY_EMAIL = "pradhuphotography@gmail.com"; // who gets pinged on a new submission
 
 function doPost(e) {
   try {
@@ -35,7 +35,12 @@ function doPost(e) {
     }
 
     // Save the photo to Drive
-    const folder = DriveApp.getFolderById(FOLDER_ID);
+    let folder;
+    try {
+      folder = DriveApp.getFolderById(FOLDER_ID);
+    } catch (folderErr) {
+      throw new Error("DRIVE FOLDER not accessible (check FOLDER_ID and that this account has access): " + folderErr);
+    }
     const bytes = Utilities.base64Decode(data.fileData);
     const blob = Utilities.newBlob(bytes, data.mimeType || "image/jpeg", data.filename || "guest-photo.jpg");
     const file = folder.createFile(blob);
@@ -44,7 +49,13 @@ function doPost(e) {
     );
 
     // Log the entry in the Sheet
-    const sheet = SpreadsheetApp.openById(SHEET_ID).getSheets()[0];
+    let ss;
+    try {
+      ss = SpreadsheetApp.openById(SHEET_ID);
+    } catch (sheetErr) {
+      throw new Error("SHEET not accessible (check SHEET_ID and that this account has access): " + sheetErr);
+    }
+    const sheet = ss.getSheets()[0];
     if (sheet.getLastRow() === 0) {
       sheet.appendRow([
         "Timestamp", "Name", "Tour", "Category", "Caption",
