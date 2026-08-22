@@ -30,6 +30,7 @@ npx serve .
 ## To update
 
 - **Upcoming Tours**: full details live in `tours.html` as `.tour-detail` blocks (copy an existing one for a new tour — badges, features, itinerary, species chips, WhatsApp CTA). `index.html`'s `#tours` section is just a 2-card teaser linking to `tours.html`; keep both in sync.
+- **Completed Tours** (`tours.html`, bottom "The Archive" section): once a tour's dates pass, remove its `.tour-detail` block from Upcoming and add a compact entry instead — copy the `.archive-card` template in the HTML comment just above the footer, fill in name/location/dates, and delete `#completed-tours-empty` once there's at least one real entry.
 - **Gear Sale & Rehoming** (`gear.html`): currently an empty state. To list an item, replace the `.empty-state` block with `.tour-card`-style listing cards (image, condition, price note, WhatsApp enquiry link with the item name pre-filled in the message).
 - **Guests Gallery** (`guests.html`): replace the empty state / placeholder tiles with `<figure>` guest photos once available (copy the pattern used in `gallery.html`).
 - **Hero images**: `.hero` / `.page-hero` sections use `data-random-hero` — `js/main.js`'s `HERO_POOL` array picks a random image from a curated list on every load. Add/remove filenames there to change the pool.
