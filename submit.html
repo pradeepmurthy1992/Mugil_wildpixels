@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit Your Photo — Wild Pixels_kmv</title>
+<meta name="description" content="Submit your best shot from a Wild Pixels tour for the Guests Gallery. Every submission is reviewed before anything goes public.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/brand/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/brand/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <img class="brand-mark" src="assets/brand/logo-mark-gold.png" alt="">
+      <span class="brand-text">
+        <span class="brand-main">Wild Pixels</span>
+        <span class="brand-sub">Wildlife Photography</span>
+      </span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">My Gallery</a></li>
+        <li><a href="guests.html">Guests Gallery</a></li>
+        <li><a href="tours.html">Upcoming Tours</a></li>
+        <li><a href="gear.html">Gear Sale</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero" data-random-hero style="background-image:url('assets/img/dwarf-kingfisher-01.jpg')">
+  <div class="container hero-inner">
+    <span class="eyebrow reveal in">Guests Gallery</span>
+    <h1 class="reveal in">Submit Your Photo</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Share Your Best Shot</span>
+      <h2>Got a frame from a Wild Pixels tour?</h2>
+      <p class="lede" style="margin:14px auto 0;">Send it in below. Every submission is reviewed by Mugil before anything is added to the public Guests Gallery — you'll hear back if yours gets featured.</p>
+    </div>
+
+    <form id="guest-submit-form" class="form-card reveal" novalidate>
+      <div class="form-group">
+        <label for="f-name">Your Name <span class="req">*</span></label>
+        <input type="text" id="f-name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="f-tour">Which Tour Did You Join? <span class="req">*</span></label>
+        <select id="f-tour" name="tour" required>
+          <option value="" disabled selected>Select a tour…</option>
+          <option value="Munnar Macro Expedition">Munnar Macro Expedition</option>
+          <option value="Tadoba Tiger Country">Tadoba Tiger Country</option>
+          <option value="Other / Personal Sighting">Other / Personal Sighting</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="f-category">Category <span class="req">*</span></label>
+        <select id="f-category" name="category" required>
+          <option value="" disabled selected>Select a category…</option>
+          <option value="Big Cats">Big Cats</option>
+          <option value="Birds of Prey">Birds of Prey</option>
+          <option value="Kingfishers & Bee-eaters">Kingfishers &amp; Bee-eaters</option>
+          <option value="Waterbirds">Waterbirds</option>
+          <option value="Songbirds">Songbirds</option>
+          <option value="Insects & Others">Insects &amp; Others</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="f-photo">Upload Your Photo <span class="req">*</span></label>
+        <input type="file" id="f-photo" name="photo" accept="image/*" required>
+        <p class="form-hint">JPG or PNG, up to 8MB.</p>
+      </div>
+
+      <div class="form-group">
+        <label for="f-caption">Caption / Species (if known)</label>
+        <textarea id="f-caption" name="caption"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>OK to feature this publicly with credit to you? <span class="req">*</span></label>
+        <div class="radio-row">
+          <label><input type="radio" name="consent" value="Yes" required> Yes</label>
+          <label><input type="radio" name="consent" value="No" required> No</label>
+          <label><input type="radio" name="consent" value="Let Mugil decide" required> Let Mugil decide</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit Photo</button>
+      <div id="form-status" class="form-message"></div>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer" id="footer-include"></footer>
+<script src="js/footer.js"></script>
+<script src="js/main.js"></script>
+<script src="js/submit.js"></script>
+</body>
+</html>
