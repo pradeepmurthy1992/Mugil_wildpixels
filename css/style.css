@@ -259,6 +259,10 @@ a { color: inherit; text-decoration: none; }
   z-index: -1;
 }
 .split-body h2 { font-size: 2rem; }
+.split-body .role-line {
+  font-family: var(--serif); font-style: italic; color: var(--accent);
+  font-size: 1.05rem; margin: 10px 0 0;
+}
 .split-body .divider {
   width: 56px; height: 2px; background: var(--accent);
   margin: 22px 0 24px;
