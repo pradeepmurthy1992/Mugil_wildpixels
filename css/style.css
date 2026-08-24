@@ -726,7 +726,22 @@ a { color: inherit; text-decoration: none; }
   .nav-toggle { display: flex; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
   .snip-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-grid { columns: 1 100%; }
   .feature-grid { grid-template-columns: 1fr; }
   .form-card { padding: 26px 20px; }
+
+  /* Compact tap-to-view thumbnail grid instead of the tall masonry layout */
+  .gallery-grid {
+    columns: unset;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+  }
+  .gallery-grid figure {
+    margin: 0;
+    break-inside: unset;
+    aspect-ratio: 1 / 1;
+    border: none;
+  }
+  .gallery-grid img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery-grid figcaption { display: none; }
 }
