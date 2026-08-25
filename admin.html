@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gear Admin — Wild Pixels_kmv</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header scrolled">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <img class="brand-mark" src="assets/brand/logo-mark-gold.png" alt="">
+      <span class="brand-text">
+        <span class="brand-main">Wild Pixels</span>
+        <span class="brand-sub">Gear Admin</span>
+      </span>
+    </a>
+  </div>
+</header>
+
+<section class="section" style="padding-top:140px;">
+  <div class="container" style="max-width:640px;">
+    <div class="section-head">
+      <span class="eyebrow">Private — Not Linked Anywhere</span>
+      <h2>Gear Sold Status</h2>
+      <p class="lede">Toggling an item here edits <code>gear.html</code> directly and pushes it live — the public site reflects it in about 30 seconds.</p>
+    </div>
+
+    <div class="form-card" style="margin-top:32px;">
+      <div class="form-group">
+        <label for="admin-password">Admin Password</label>
+        <input type="password" id="admin-password" autocomplete="current-password" placeholder="Needed only to change something">
+      </div>
+
+      <div id="items-list"><p style="color:var(--text-faint); font-size:0.9rem;">Loading items…</p></div>
+
+      <div id="admin-status" class="form-message"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Paste the deployed AdminGear.gs Web App URL here (ends in /exec).
+  const ADMIN_ENDPOINT = "PASTE_ADMIN_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+  const itemsList = document.getElementById("items-list");
+  const statusEl = document.getElementById("admin-status");
+  const passwordEl = document.getElementById("admin-password");
+
+  function showStatus(type, msg) {
+    statusEl.className = "form-message " + type;
+    statusEl.textContent = msg;
+  }
+
+  async function loadItems() {
+    if (ADMIN_ENDPOINT.indexOf("PASTE_") === 0) {
+      itemsList.innerHTML = "";
+      showStatus("error", "Not connected yet — paste the deployed Apps Script URL into admin.html's ADMIN_ENDPOINT.");
+      return;
+    }
+    try {
+      const res = await fetch(ADMIN_ENDPOINT);
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || "Unknown error");
+      renderItems(data.items);
+    } catch (err) {
+      itemsList.innerHTML = "";
+      showStatus("error", "Couldn't load items: " + err.message);
+    }
+  }
+
+  function renderItems(items) {
+    itemsList.innerHTML = "";
+    items.forEach((item) => {
+      const row = document.createElement("div");
+      row.className = "admin-item";
+
+      const dot = document.createElement("span");
+      dot.className = "dot";
+      dot.textContent = item.sold ? "🔴" : "🟢";
+
+      const info = document.createElement("span");
+      info.className = "info";
+      info.innerHTML =
+        '<span class="title">' + item.title + "</span>" +
+        '<span class="status">' + (item.sold ? "Marked sold" : "Available") + "</span>";
+
+      const btn = document.createElement("button");
+      btn.className = "btn";
+      btn.textContent = item.sold ? "Mark Available" : "Mark Sold";
+      btn.addEventListener("click", () => toggleItem(item.id, !item.sold, btn));
+
+      row.appendChild(dot);
+      row.appendChild(info);
+      row.appendChild(btn);
+      itemsList.appendChild(row);
+    });
+  }
+
+  async function toggleItem(itemId, sold, btn) {
+    const password = passwordEl.value;
+    if (!password) {
+      showStatus("error", "Enter the admin password first.");
+      return;
+    }
+    btn.disabled = true;
+    showStatus("loading", "Updating " + itemId + "…");
+    try {
+      const res = await fetch(ADMIN_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ password: password, itemId: itemId, sold: sold }),
+      });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || "Unknown error");
+      showStatus("success", "Updated — live site will reflect this in ~30 seconds.");
+      loadItems();
+    } catch (err) {
+      showStatus("error", "Failed: " + err.message);
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  loadItems();
+</script>
+
+</body>
+</html>

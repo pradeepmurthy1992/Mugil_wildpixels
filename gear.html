@@ -80,31 +80,20 @@
     </div>
 
     <!--
-      TO MARK AN ITEM SOLD: add class="sold" to its <article class="gear-card">,
-      add <span class="gear-sold-badge">Sold</span> as the first child inside
-      .gear-media (before the <img>), and add
-      <p class="sold-note">This item has been sold.</p> right after the price.
-      The Enquire button is hidden automatically once "sold" is on the card.
-      Example:
-
-      <article class="gear-card sold reveal">
-        <div class="gear-media">
-          <span class="gear-sold-badge">Sold</span>
-          <img src="assets/img/gear/nikon-50mm-f1.8g.jpg" alt="...">
-        </div>
-        <div class="gear-body">
-          ...
-          <div class="gear-price">₹11,500 ...</div>
-          <p class="sold-note">This item has been sold.</p>
-          <p class="desc">...</p>
-        </div>
-      </article>
+      Sold state is fully data-driven (see admin.html for the self-serve
+      toggle panel). Each card carries data-item (a stable slug used by
+      the admin panel / Apps Script to find it) and data-sold="true|false".
+      The badge, dimming and hidden Enquire button all follow from that
+      one attribute via CSS — nothing else needs to change by hand.
     -->
 
     <div class="gear-grid">
 
-      <article class="gear-card reveal">
-        <div class="gear-media"><img src="assets/img/gear/nikon-50mm-f1.8g.jpg" alt="Nikon AF-S NIKKOR 50mm f/1.8G lens"></div>
+      <article class="gear-card reveal" data-item="nikon-50mm" data-sold="false">
+        <div class="gear-media">
+          <span class="gear-sold-badge">Sold</span>
+          <img src="assets/img/gear/nikon-50mm-f1.8g.jpg" alt="Nikon AF-S NIKKOR 50mm f/1.8G lens">
+        </div>
         <div class="gear-body">
           <div class="gear-badges">
             <span class="gear-verified">✓ Verified by Mugil</span>
@@ -112,13 +101,17 @@
           </div>
           <h3>Nikon AF-S NIKKOR 50mm f/1.8G</h3>
           <div class="gear-price">₹11,500 <small>Flexible ₹10,500–₹12,000 · New retail ~₹17,900</small></div>
+          <p class="sold-note">This item has been sold.</p>
           <p class="desc">The classic "nifty fifty" — great for portraits, low-light shots and everyday photography. Autofocus and aperture ring working perfectly, glass is clean with no fungus or scratches. Genuine reason for sale: upgrading my kit. Fixed Nikon F-mount, works on all Nikon DSLRs.</p>
           <a href="https://wa.me/919566342789?text=Hi%20Mugil%2C%20I%27m%20interested%20in%20the%20Nikon%20AF-S%2050mm%20f%2F1.8G%20lens%20listed%20on%20Wild%20Pixels." target="_blank" rel="noopener" class="btn btn-primary">Enquire on WhatsApp</a>
         </div>
       </article>
 
-      <article class="gear-card reveal">
-        <div class="gear-media"><img src="assets/img/gear/nikon-70-300mm-af-p.jpg" alt="Nikon AF-P NIKKOR 70-300mm f/4.5-5.6E ED VR lens"></div>
+      <article class="gear-card reveal" data-item="nikon-70-300" data-sold="false">
+        <div class="gear-media">
+          <span class="gear-sold-badge">Sold</span>
+          <img src="assets/img/gear/nikon-70-300mm-af-p.jpg" alt="Nikon AF-P NIKKOR 70-300mm f/4.5-5.6E ED VR lens">
+        </div>
         <div class="gear-body">
           <div class="gear-badges">
             <span class="gear-verified">✓ Verified by Mugil</span>
@@ -126,14 +119,18 @@
           </div>
           <h3>Nikon AF-P NIKKOR 70-300mm f/4.5-5.6E ED VR</h3>
           <div class="gear-price">₹22,500 <small>Flexible ₹21,000–₹24,000 · New retail ~₹33,000–35,000</small></div>
+          <p class="sold-note">This item has been sold.</p>
           <p class="desc">Great reach for wildlife, sports and events. VR (Normal/Sport modes) and autofocus both working smoothly, zoom ring is tight with no play. Comes with front and rear caps. No fungus, no haze, glass is clean.</p>
           <p class="gear-note">⚠ This is the AF-P version — works with most Nikon DSLRs from ~2016 onward, but may need a firmware update on some bodies. Please confirm compatibility with your camera before buying.</p>
           <a href="https://wa.me/919566342789?text=Hi%20Mugil%2C%20I%27m%20interested%20in%20the%20Nikon%20AF-P%2070-300mm%20lens%20listed%20on%20Wild%20Pixels." target="_blank" rel="noopener" class="btn btn-primary">Enquire on WhatsApp</a>
         </div>
       </article>
 
-      <article class="gear-card reveal">
-        <div class="gear-media"><img src="assets/img/gear/nikon-85mm-f1.8g.jpg" alt="Nikon AF-S NIKKOR 85mm f/1.8G lens with hood"></div>
+      <article class="gear-card reveal" data-item="nikon-85mm" data-sold="false">
+        <div class="gear-media">
+          <span class="gear-sold-badge">Sold</span>
+          <img src="assets/img/gear/nikon-85mm-f1.8g.jpg" alt="Nikon AF-S NIKKOR 85mm f/1.8G lens with hood">
+        </div>
         <div class="gear-body">
           <div class="gear-badges">
             <span class="gear-verified">✓ Verified by Mugil</span>
@@ -141,13 +138,17 @@
           </div>
           <h3>Nikon AF-S NIKKOR 85mm f/1.8G</h3>
           <div class="gear-price">₹18,500 <small>Flexible ₹17,000–₹19,500 · New retail ~₹28,000–30,000</small></div>
+          <p class="sold-note">This item has been sold.</p>
           <p class="desc">A fantastic portrait prime with beautiful background blur. Autofocus is fast and accurate, aperture and focus rings smooth. Includes the original Nikon HB-62 lens hood. Glass is spotless — always used with a UV filter and kept in a dry box.</p>
           <a href="https://wa.me/919566342789?text=Hi%20Mugil%2C%20I%27m%20interested%20in%20the%20Nikon%20AF-S%2085mm%20f%2F1.8G%20lens%20listed%20on%20Wild%20Pixels." target="_blank" rel="noopener" class="btn btn-primary">Enquire on WhatsApp</a>
         </div>
       </article>
 
-      <article class="gear-card reveal">
-        <div class="gear-media"><img src="assets/img/gear/sigma-150-500mm.jpg" alt="Sigma 150-500mm f/5-6.3 APO DG OS HSM lens"></div>
+      <article class="gear-card reveal" data-item="sigma-150-500" data-sold="false">
+        <div class="gear-media">
+          <span class="gear-sold-badge">Sold</span>
+          <img src="assets/img/gear/sigma-150-500mm.jpg" alt="Sigma 150-500mm f/5-6.3 APO DG OS HSM lens">
+        </div>
         <div class="gear-body">
           <div class="gear-badges">
             <span class="gear-verified">✓ Verified by Mugil</span>
@@ -155,13 +156,17 @@
           </div>
           <h3>Sigma 150-500mm f/5-6.3 APO DG OS HSM</h3>
           <div class="gear-price">₹45,000 <small>Flexible ₹42,000–₹48,000 · New retail ~₹69,000–70,000</small></div>
+          <p class="sold-note">This item has been sold.</p>
           <p class="desc">Ideal for wildlife, bird and sports photography. Optical Stabilizer and autofocus both working perfectly, zoom lock functions fine, tripod collar included and rotates smoothly. Comes with lens hood and front/rear caps. Heavy-duty build, glass is clean with no fungus or haze.</p>
           <a href="https://wa.me/919566342789?text=Hi%20Mugil%2C%20I%27m%20interested%20in%20the%20Sigma%20150-500mm%20lens%20listed%20on%20Wild%20Pixels." target="_blank" rel="noopener" class="btn btn-primary">Enquire on WhatsApp</a>
         </div>
       </article>
 
-      <article class="gear-card reveal">
-        <div class="gear-media"><img src="assets/img/gear/tokina-11-16mm.jpg" alt="Tokina AT-X 116 PRO DX-II 11-16mm f/2.8 lens"></div>
+      <article class="gear-card reveal" data-item="tokina-11-16" data-sold="false">
+        <div class="gear-media">
+          <span class="gear-sold-badge">Sold</span>
+          <img src="assets/img/gear/tokina-11-16mm.jpg" alt="Tokina AT-X 116 PRO DX-II 11-16mm f/2.8 lens">
+        </div>
         <div class="gear-body">
           <div class="gear-badges">
             <span class="gear-verified">✓ Verified by Mugil</span>
@@ -169,13 +174,17 @@
           </div>
           <h3>Tokina AT-X 116 PRO DX-II 11-16mm f/2.8</h3>
           <div class="gear-price">₹26,000 <small>Flexible ₹24,000–₹28,000 · New retail ~₹40,000</small></div>
+          <p class="sold-note">This item has been sold.</p>
           <p class="desc">A sharp, fast wide-angle zoom great for landscapes, architecture and interiors — constant f/2.8 aperture throughout the zoom range. Autofocus and manual focus clutch both working smoothly, zoom/focus rings are tight with no play. A UV filter has been on it since day one — front glass is pristine underneath.</p>
           <a href="https://wa.me/919566342789?text=Hi%20Mugil%2C%20I%27m%20interested%20in%20the%20Tokina%2011-16mm%20f%2F2.8%20lens%20listed%20on%20Wild%20Pixels." target="_blank" rel="noopener" class="btn btn-primary">Enquire on WhatsApp</a>
         </div>
       </article>
 
-      <article class="gear-card reveal">
-        <div class="gear-media"><img src="assets/img/gear/fujifilm-instax-mini-link-2.jpg" alt="Fujifilm Instax Mini Link 2 smartphone printer, Space Blue"></div>
+      <article class="gear-card reveal" data-item="instax-mini-link-2" data-sold="false">
+        <div class="gear-media">
+          <span class="gear-sold-badge">Sold</span>
+          <img src="assets/img/gear/fujifilm-instax-mini-link-2.jpg" alt="Fujifilm Instax Mini Link 2 smartphone printer, Space Blue">
+        </div>
         <div class="gear-body">
           <div class="gear-badges">
             <span class="gear-verified">✓ Verified by Mugil</span>
@@ -183,6 +192,7 @@
           </div>
           <h3>Fujifilm Instax Mini Link 2 — Space Blue</h3>
           <div class="gear-price">₹7,000 <small>Flexible ₹6,500–₹7,500 · New retail ~₹10,999</small></div>
+          <p class="sold-note">This item has been sold.</p>
           <p class="desc">Connects instantly via Bluetooth to print phone photos as real Instax mini-format prints — great for parties, gifting or everyday memories. Battery health is excellent and holds charge very well. Compact, pocket-friendly, prints come out clean and sharp. Charging cable included.</p>
           <a href="https://wa.me/919566342789?text=Hi%20Mugil%2C%20I%27m%20interested%20in%20the%20Fujifilm%20Instax%20Mini%20Link%202%20listed%20on%20Wild%20Pixels." target="_blank" rel="noopener" class="btn btn-primary">Enquire on WhatsApp</a>
         </div>
