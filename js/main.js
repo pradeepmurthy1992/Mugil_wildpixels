@@ -75,6 +75,21 @@ document.addEventListener("DOMContentLoaded", () => {
     revealEls.forEach((el) => el.classList.add("in"));
   }
 
+  /* Trip snippets slideshow — slow ambient crossfade */
+  const slideshow = document.querySelector(".snippet-slideshow");
+  if (slideshow) {
+    const imgs = slideshow.querySelectorAll("img");
+    if (imgs.length) {
+      let idx = 0;
+      imgs[0].classList.add("active");
+      setInterval(() => {
+        imgs[idx].classList.remove("active");
+        idx = (idx + 1) % imgs.length;
+        imgs[idx].classList.add("active");
+      }, 3800);
+    }
+  }
+
   /* Gallery filter */
   const filterBar = document.querySelector(".filter-bar");
   if (filterBar) {

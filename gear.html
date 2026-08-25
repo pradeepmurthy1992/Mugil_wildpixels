@@ -79,6 +79,28 @@
       </div>
     </div>
 
+    <!--
+      TO MARK AN ITEM SOLD: add class="sold" to its <article class="gear-card">,
+      add <span class="gear-sold-badge">Sold</span> as the first child inside
+      .gear-media (before the <img>), and add
+      <p class="sold-note">This item has been sold.</p> right after the price.
+      The Enquire button is hidden automatically once "sold" is on the card.
+      Example:
+
+      <article class="gear-card sold reveal">
+        <div class="gear-media">
+          <span class="gear-sold-badge">Sold</span>
+          <img src="assets/img/gear/nikon-50mm-f1.8g.jpg" alt="...">
+        </div>
+        <div class="gear-body">
+          ...
+          <div class="gear-price">₹11,500 ...</div>
+          <p class="sold-note">This item has been sold.</p>
+          <p class="desc">...</p>
+        </div>
+      </article>
+    -->
+
     <div class="gear-grid">
 
       <article class="gear-card reveal">

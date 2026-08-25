@@ -427,11 +427,35 @@ a { color: inherit; text-decoration: none; }
   color: var(--text); margin: 0 0 4px;
 }
 .archive-meta { font-size: 0.78rem; color: var(--text-faint); }
+.archive-body p.archive-desc { font-size: 0.82rem; color: var(--text-muted); margin: 8px 0 0; }
 .archive-badge {
   display: inline-block; margin-top: 6px;
   font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--text-faint); border: 1px solid var(--border-strong); padding: 3px 8px;
 }
+
+/* ---------- Floating trip-snippets slideshow ---------- */
+.trip-snippets { margin-top: 68px; }
+.trip-snippets .snippets-label {
+  text-align: center;
+  font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 24px;
+}
+.snippet-slideshow {
+  position: relative;
+  max-width: 720px; margin: 0 auto;
+  aspect-ratio: 16 / 10;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+.snippet-slideshow img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.8s ease;
+}
+.snippet-slideshow img.active { opacity: 1; }
 
 /* ---------- Gear page ---------- */
 .gear-how {
@@ -490,6 +514,24 @@ a { color: inherit; text-decoration: none; }
 }
 .gear-body p.desc { color: var(--text-muted); font-size: 0.86rem; flex: 1; margin: 14px 0 20px; }
 .gear-body .btn { align-self: flex-start; }
+
+/* Sold state — add class="sold" to .gear-card, a .gear-sold-badge span
+   inside .gear-media, and a p.sold-note replacing the Enquire button. */
+.gear-card.sold .gear-media { position: relative; }
+.gear-card.sold .gear-media img { filter: grayscale(1) brightness(0.6); }
+.gear-sold-badge {
+  position: absolute; top: 14px; left: 14px; z-index: 1;
+  background: #b23b3b; color: #fff;
+  font-family: var(--sans); font-weight: 600; font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+.gear-card.sold h3, .gear-card.sold .gear-price { opacity: 0.6; }
+.gear-card.sold .btn { display: none; }
+.gear-card.sold .sold-note {
+  font-size: 0.82rem; color: var(--text-faint); font-style: italic; margin-top: 4px;
+}
 
 /* ---------- Gallery grid & snippets ---------- */
 .snip-grid {
