@@ -457,6 +457,20 @@ a { color: inherit; text-decoration: none; }
 }
 .snippet-slideshow img.active { opacity: 1; }
 
+/* Compact size, for use as a smaller floating accent (e.g. homepage) */
+.snippet-slideshow.small { max-width: 420px; aspect-ratio: 4 / 5; }
+
+/* Ken Burns modifier — slow zoom-out on the active image, so a plain
+   photo slideshow reads more like a quiet video loop. */
+.snippet-slideshow.ken-burns img {
+  transform: scale(1.09);
+  transition: opacity 1.8s ease;
+}
+.snippet-slideshow.ken-burns img.active {
+  transform: scale(1);
+  transition: opacity 1.8s ease, transform 6s ease-out;
+}
+
 /* ---------- Gear page ---------- */
 .gear-how {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
