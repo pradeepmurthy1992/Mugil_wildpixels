@@ -114,11 +114,25 @@ function doPost(e) {
 }
 
 /** GET — list current items + sold status. No password needed (this
- *  info is already publicly visible on the live gear.html page). */
+ *  info is already publicly visible on the live gear.html page) --
+ *  but still authenticated to GitHub server-side, since unauthenticated
+ *  API requests share a very low rate limit across all of Google's IPs
+ *  and get exhausted almost immediately. */
 function doGet(e) {
   try {
+    const props = PropertiesService.getScriptProperties();
+    const githubToken = props.getProperty("GITHUB_TOKEN");
+    if (!githubToken) {
+      throw new Error("Server not configured — missing GITHUB_TOKEN script property.");
+    }
     const apiBase = "https://api.github.com/repos/" + REPO_OWNER + "/" + REPO_NAME + "/contents/" + FILE_PATH + "?ref=" + BRANCH;
-    const resp = UrlFetchApp.fetch(apiBase, { muteHttpExceptions: true });
+    const resp = UrlFetchApp.fetch(apiBase, {
+      headers: {
+        Authorization: "Bearer " + githubToken,
+        Accept: "application/vnd.github+json",
+      },
+      muteHttpExceptions: true,
+    });
     if (resp.getResponseCode() !== 200) {
       throw new Error("Could not read gear.html from GitHub: " + resp.getContentText());
     }
